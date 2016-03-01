@@ -3315,6 +3315,11 @@ bool is_useless_item(const item_def &item, bool temp)
     case OBJ_POTIONS:
     {
         // Not useless, even if you can't quaff it.
+        if (you.char_class == JOB_STALKER && !you.num_turns
+            || you.has_spell(SPELL_EVAPORATE))
+        {
+            return false;
+        // No potion is useless if it can be used for Evaporate.
         if (you.has_spell(SPELL_SUBLIMATION_OF_BLOOD)
             && (item.sub_type == POT_BLOOD
                 || item.sub_type == POT_BLOOD_COAGULATED))

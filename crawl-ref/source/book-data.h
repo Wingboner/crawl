@@ -374,18 +374,17 @@
     SPELL_NO_SPELL,
 },
 
-#if TAG_MAJOR_VERSION == 34
 {   // Book of Stalking
-    SPELL_NO_SPELL,
-    SPELL_NO_SPELL,
-    SPELL_NO_SPELL,
-    SPELL_NO_SPELL,
-    SPELL_NO_SPELL,
+    SPELL_FULSOME_DISTILLATION,
+    SPELL_EVAPORATE,
+    SPELL_PASSWALL,
+    SPELL_PETRIFY,
+    SPELL_DIG,
     SPELL_NO_SPELL,
     SPELL_NO_SPELL,
     SPELL_NO_SPELL,
 },
-#endif
+
 
 {   // Book of Debilitation
     SPELL_CORONA,

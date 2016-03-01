@@ -1,4 +1,4 @@
-%%%%
+﻿%%%%
 amulet of clarity
 
 This amulet protects its wearer from some forms of mental confusion, including
@@ -315,6 +315,12 @@ The classic text of the magical field of Translocations, written by the
 archmage and accomplished Warper Golubria two centuries ago. This book can
 still be found in magical libraries all across the world, although sometimes
 not on the same shelf where the librarian left it.
+%%%%
+book of stalking
+
+An instructional guide to the fundamentals of transmutational Stalking. This
+nondescript, unassuming book tends to blend in with the background, and many
+sorcerers don't give it a second glance.
 %%%%
 book of summonings
 

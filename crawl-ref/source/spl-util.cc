@@ -1288,7 +1288,8 @@ bool spell_no_hostile_in_range(spell_type spell, bool rod)
         beam.thrower = KILL_YOU_MISSILE;
         zappy(zap, calc_spell_power(spell, true), beam);
     }
-    else if (spell == SPELL_MEPHITIC_CLOUD)
+    else if (spell == SPELL_EVAPORATE
+             || spell == SPELL_MEPHITIC_CLOUD)
     {
         beam.flavour = BEAM_MEPHITIC;
         beam.ex_size = 1;
