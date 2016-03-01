@@ -62,7 +62,7 @@ static void _species_stat_init(species_type which_species)
     case SP_HIGH_ELF:           s =  7; i = 11; d = 10;      break;  // 28
     case SP_DEEP_ELF:           s =  5; i = 12; d = 10;      break;  // 27
     case SP_SLUDGE_ELF:         s =  8; i =  9; d =  9;      break;  // 26
-
+    case SP_MOUNTAIN_DWARF:     s =  9; i =  4; d =  5;      break;  // 18
     case SP_DEEP_DWARF:         s = 11; i =  8; d =  8;      break;  // 27
 
     case SP_TROLL:              s = 15; i =  4; d =  5;      break;  // 24
@@ -1184,11 +1184,11 @@ static void _give_basic_knowledge(job_type which_job)
     you.type_ids[OBJ_POTIONS][POT_BLOOD] = ID_KNOWN_TYPE;
     you.type_ids[OBJ_POTIONS][POT_BLOOD_COAGULATED] = ID_KNOWN_TYPE;
     you.type_ids[OBJ_POTIONS][POT_PORRIDGE] = ID_KNOWN_TYPE;
-
-    // Won't appear unidentified anywhere.
-    you.type_ids[OBJ_SCROLLS][SCR_CURSE_WEAPON] = ID_KNOWN_TYPE;
-    you.type_ids[OBJ_SCROLLS][SCR_CURSE_JEWELLERY] = ID_KNOWN_TYPE;
-    you.type_ids[OBJ_SCROLLS][SCR_CURSE_ARMOUR] = ID_KNOWN_TYPE;
+		
+	// Won't appear unidentified anywhere.		
+	you.type_ids[OBJ_SCROLLS][SCR_CURSE_WEAPON] = ID_KNOWN_TYPE;		
+	you.type_ids[OBJ_SCROLLS][SCR_CURSE_JEWELLERY] = ID_KNOWN_TYPE;		
+	you.type_ids[OBJ_SCROLLS][SCR_CURSE_ARMOUR] = ID_KNOWN_TYPE;	
 }
 
 static void _setup_normal_game();
