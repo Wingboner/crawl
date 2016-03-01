@@ -137,6 +137,10 @@ Orb of Destruction cast
 
 @The_monster@ launches a ball of destructive magic.
 %%%%
+unseen Orb of Destruction cast
+
+@The_something@ conjures a glowing orb.
+%%%%
 Sticky Flame cast
 
 @The_monster@ sprays @target@ with burning goo.
@@ -184,8 +188,16 @@ Chant Fire Storm cast
 Chant Word of Entropy cast
 
 @The_monster@ begins to chant a word of entropy!
+%%%%
+Call of Chaos cast
+
+@The_monster@ calls on the powers of chaos!
+%%%%
+unseen Call of Chaos cast
+
+@The_something@ calls on the powers of chaos!
 #################################################
-# The next two have special hard-coded messaging.
+# These have special hard-coded messaging.
 #################################################
 %%%%
 Siren Song cast
@@ -195,21 +207,13 @@ __NONE
 Avatar Song cast
 
 __NONE
-#####################################################
-# Individual innate spells (breathing and spitting).
-#####################################################
-%%%%
-unseen Signal Horn cast
-
-You hear a note loudly blown on a horn!
-%%%%
-Signal Horn cast
-
-@The_monster@ blows a loud note on a signal horn!
 %%%%
 Seal Doors cast
 
-@The_monster@ activates a sealing rune.
+__NONE
+#####################################################
+# Individual innate spells (breathing and spitting).
+#####################################################
 %%%%
 Spit Acid cast
 
@@ -308,9 +312,17 @@ Volley of Thorns cast
 
 @The_monster@ fires a volley of thorns @at@ @target@.
 %%%%
-Hunting Cry cast
+Warning Cry cast
 
-@The_monster@ howls a hunting cry!
+@The_monster@ howls a warning cry!
+%%%%
+unseen Warning Cry cast
+
+You hear a loud warning cry!
+%%%%
+Slug Dart cast
+
+@The_monster@ launches a dart @at@ @target@.
 ########################################################################
 # Unique monsters
 ########################################################################
@@ -417,10 +429,6 @@ VISUAL:@The_monster@ gestures frantically.
 ########################################################################
 # Individual monsters
 ########################################################################
-brain worm cast
-
-@The_monster@'s bulging head throbs.
-%%%%
 giant orange brain cast
 
 @The_monster@ pulsates.
@@ -594,9 +602,13 @@ Blink Away revenant cast
 
 __NONE
 %%%%
-Hunting Cry seraph cast
+Warning Cry seraph cast
 
 @The_monster@ shouts a warning to @possessive@ allies!
+%%%%
+unseen Warning Cry seraph cast
+
+You hear a loud warning shout!
 %%%%
 Battlecry seraph cast
 
@@ -617,6 +629,23 @@ insubstantial wisp cast
 Blink insubstantial wisp cast
 
 __NONE
+%%%%
+unseen Warning Cry howler monkey cast
+
+You hear a tremendous hooting and howling!
+%%%%
+Warning Cry howler monkey cast
+
+@The_monster@ hoots and howls with incredible vigour!
+%%%%
+unseen Warning Cry vault sentinel cast
+
+You hear a note loudly blown on a horn!
+%%%%
+Warning Cry vault sentinel cast
+
+@The_monster@ blows a loud note on a signal horn!
+%%%%
 ########################################################################
 # Monster species and genus messages.
 ########################################################################

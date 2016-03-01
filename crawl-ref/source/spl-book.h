@@ -40,8 +40,7 @@ bool has_spells_to_memorise(bool silent = true,
                             spell_type current_spell = SPELL_NO_SPELL);
 vector<spell_type> get_mem_spell_list(vector<int> &books);
 
-bool make_book_level_randart(item_def &book, int level = -1,
-                             string owner = "");
+bool make_book_level_randart(item_def &book, int level = -1);
 bool make_book_theme_randart(item_def &book,
                              spschool_flag_type disc1 = SPTYP_NONE,
                              spschool_flag_type disc2 = SPTYP_NONE,
@@ -56,8 +55,8 @@ bool make_book_theme_randart(item_def &book,
                              int num_spells = -1, int max_levels = -1,
                              string owner = "", string title = "",
                              bool exact_level = false);
-void make_book_Roxanne_special(item_def *book);
-void make_book_Kiku_gift(item_def &book, bool first);
+void make_book_roxanne_special(item_def *book);
+void make_book_kiku_gift(item_def &book, bool first);
 
 bool book_has_title(const item_def &book);
 
