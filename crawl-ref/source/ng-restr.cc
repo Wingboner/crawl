@@ -27,7 +27,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_HILL_ORC:
         case SP_TROLL:
         case SP_MINOTAUR:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
         case SP_GARGOYLE:
         case SP_CENTAUR:
             return CC_UNRESTRICTED;
@@ -44,7 +44,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_HILL_ORC:
         case SP_MERFOLK:
         case SP_MINOTAUR:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
         case SP_GARGOYLE:
         case SP_CENTAUR:
             return CC_UNRESTRICTED;
@@ -77,7 +77,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_OGRE:
         case SP_MERFOLK:
         case SP_MINOTAUR:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
         case SP_GARGOYLE:
         case SP_DEMONSPAWN:
             return CC_UNRESTRICTED;
@@ -95,7 +95,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_CENTAUR:
         case SP_MERFOLK:
         case SP_MINOTAUR:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
         case SP_BASE_DRACONIAN:
         case SP_DEMONSPAWN:
             return CC_UNRESTRICTED;
@@ -114,7 +114,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_TROLL:
         case SP_MERFOLK:
         case SP_MINOTAUR:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
         case SP_DEMONSPAWN:
             return CC_UNRESTRICTED;
         default:
@@ -131,7 +131,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_TROLL:
         case SP_MERFOLK:
         case SP_BASE_DRACONIAN:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
         case SP_DEMONSPAWN:
             return CC_UNRESTRICTED;
         default:
@@ -151,7 +151,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_DEEP_DWARF:
         case SP_HILL_ORC:
         case SP_MINOTAUR:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
         case SP_BASE_DRACONIAN:
         case SP_GARGOYLE:
             return CC_UNRESTRICTED;
@@ -285,7 +285,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_TENGU:
         case SP_DEMIGOD:
         case SP_GARGOYLE:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
 		    return CC_UNRESTRICTED;
         default:
             return CC_RESTRICTED;
@@ -330,7 +330,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_DEMIGOD:
         case SP_GHOUL:
         case SP_OCTOPODE:
-        case SP_MOUNTAIN_DWARF		
+        case SP_MOUNTAIN_DWARF:
             return CC_UNRESTRICTED;
         default:
             return CC_RESTRICTED;
@@ -379,7 +379,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_OGRE:
         case SP_TROLL:
         case SP_CENTAUR:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
             return CC_UNRESTRICTED;
         default:
             return CC_RESTRICTED;
@@ -409,7 +409,7 @@ char_choice_restriction species_allowed(job_type job, species_type speci)
         case SP_KOBOLD:
         case SP_SPRIGGAN:
         case SP_TROLL:
-        case SP_MOUNTAIN_DWARF
+        case SP_MOUNTAIN_DWARF:
         case SP_CENTAUR:
             return CC_UNRESTRICTED;
         default:
