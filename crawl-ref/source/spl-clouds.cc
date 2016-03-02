@@ -2,7 +2,6 @@
  * @file
  * @brief Cloud creating spells.
 **/
-
 #include "AppHdr.h"
 
 #include "spl-clouds.h"

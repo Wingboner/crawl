@@ -8,12 +8,11 @@
 #include <sstream>
 #include <iomanip>
 
+#include "items.h"
 #include "spl-cast.h"
-#include "spl-other.cc"
+#include "spl-other.h"
 #include "externs.h"
 #include "options.h"
-#include "items.h"
-#include "items.cc"
 #include "areas.h"
 #include "art-enum.h"
 #include "beam.h"
@@ -52,7 +51,6 @@
 #include "spl-goditem.h"
 #include "spl-miscast.h"
 #include "spl-monench.h"
-#include "spl-other.h"
 #include "spl-selfench.h"
 #include "spl-summoning.h"
 #include "spl-transloc.h"

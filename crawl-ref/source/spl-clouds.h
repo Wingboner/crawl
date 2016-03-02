@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SPL_CLOUDS_H
 #define SPL_CLOUDS_H
 

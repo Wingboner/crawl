@@ -2,7 +2,7 @@
  * @file
  * @brief Functions used to print information about various game objects.
 **/
-#include "spl-clouds.cc"
+#include "spl-cast.h"
 #include "spl-clouds.h"
 #include "AppHdr.h"
 #include "describe.h"
