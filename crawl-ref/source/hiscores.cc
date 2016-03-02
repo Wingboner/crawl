@@ -810,7 +810,6 @@ enum old_job_type
     OLD_JOB_DEATH_KNIGHT = -2,
     OLD_JOB_PALADIN      = -3,
     OLD_JOB_REAVER       = -4,
-    OLD_JOB_STALKER      = -5,
     OLD_JOB_JESTER       = -6,
     OLD_JOB_PRIEST       = -7,
     NUM_OLD_JOBS
@@ -831,8 +830,6 @@ static const char* _job_name(int job)
         return "Paladin";
     case OLD_JOB_REAVER:
         return "Reaver";
-    case OLD_JOB_STALKER:
-        return "Stalker";
     case OLD_JOB_JESTER:
         return "Jester";
     case OLD_JOB_PRIEST:
@@ -857,8 +854,6 @@ static const char* _job_abbrev(int job)
         return "Pa";
     case OLD_JOB_REAVER:
         return "Re";
-    case OLD_JOB_STALKER:
-        return "St";
     case OLD_JOB_JESTER:
         return "Jr";
     case OLD_JOB_PRIEST:

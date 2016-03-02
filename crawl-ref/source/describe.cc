@@ -2,9 +2,8 @@
  * @file
  * @brief Functions used to print information about various game objects.
 **/
-#include "spl-cast.h"
-#include "spl-clouds.h"
 #include "AppHdr.h"
+
 #include "describe.h"
 #include "process_desc.h"
 #include "database.h"
@@ -23,6 +22,7 @@
 #include "artefact.h"
 #include "branch.h"
 #include "cio.h"
+#include "spl-clouds.h"
 #include "clua.h"
 #include "command.h"
 #include "decks.h"
