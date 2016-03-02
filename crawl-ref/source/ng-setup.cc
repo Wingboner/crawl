@@ -143,7 +143,7 @@ static void _jobs_stat_init(job_type which_job)
 
     case JOB_HEALER:            s =  4; i =  4; d =  4; break;
 
-    case JOB_STALKER:           s =  2; i =  4; d =  6; hp = 12; mp = 1; break;
+    case JOB_STALKER:           s =  2; i =  4; d =  6; break;
     case JOB_ASSASSIN:          s =  3; i =  3; d =  6; break;
 
     case JOB_HUNTER:            s =  4; i =  3; d =  5; break;

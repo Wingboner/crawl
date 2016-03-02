@@ -2966,8 +2966,8 @@ void bolt::affect_place_explosion_clouds()
         return;
     }
 
--    if (flavour >= BEAM_MEPHITIC && flavour <= BEAM_POTION_RANDOM)
-     {
+    if (flavour >= BEAM_MEPHITIC && flavour <= BEAM_POTION_RANDOM)
+    {
          const int duration = roll_dice(2, 3 + ench_power / 20);
         cloud_type cl_type;
 
@@ -3011,7 +3011,7 @@ void bolt::affect_place_explosion_clouds()
         const coord_def center = (aimed_at_feet ? source : ray.pos());
         if (p == center || x_chance_in_y(125 + ench_power, 225))
             place_cloud(cl_type, p, duration, agent());
-        }
+     
     }
     if (flavour == BEAM_MEPHITIC)
     {
@@ -3267,10 +3267,6 @@ bool bolt::harmless_to_player() const
     case BEAM_POISON:
         return player_res_poison(false) >= 3
                || is_big_cloud && player_res_poison(false) > 0;
-
-    case BEAM_MEPHITIC:
-        return player_res_poison(false) > 0 || you.clarity(false)
-               || you.is_unbreathing();
 
     case BEAM_MEPHITIC:
         return player_res_poison(false) > 0 || you.clarity(false)

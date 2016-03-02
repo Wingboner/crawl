@@ -9,7 +9,9 @@
 #include "externs.h"
 
 #include <algorithm>
-
+#include "itemprop.h"
+#include "libutil.h"
+#include "skills.h"
 #include "act-iter.h"
 #include "beam.h"
 #include "cloud.h"
@@ -380,7 +382,7 @@ static std::vector<int> _get_evaporate_result(int potion)
     case POT_PARALYSIS:
     case POT_CONFUSION:
     case POT_SLOWING:
-        beams.push_back(BEAM_POTION_MEPHITIC);
+        beams.push_back(BEAM_MEPHITIC);
         break;
 
     case POT_WATER:
@@ -390,7 +392,7 @@ static std::vector<int> _get_evaporate_result(int potion)
 
     case POT_BLOOD:
     case POT_BLOOD_COAGULATED:
-        beams.push_back(BEAM_POTION_MEPHITIC);
+        beams.push_back(BEAM_MEPHITIC);
         // deliberate fall through
     case POT_BERSERK_RAGE:
         beams.push_back(BEAM_POTION_FIRE);
@@ -414,7 +416,7 @@ static std::vector<int> _get_evaporate_result(int potion)
 
     default:
         beams.push_back(BEAM_POTION_FIRE);
-        beams.push_back(BEAM_POTION_MEPHITIC);
+        beams.push_back(BEAM_MEPHITIC);
         beams.push_back(BEAM_POTION_COLD);
         beams.push_back(BEAM_POTION_POISON);
         beams.push_back(BEAM_POTION_BLUE_SMOKE);
@@ -490,7 +492,7 @@ spret_type cast_evaporate(int pow, bolt& beem, int pot_idx, bool fail)
     beem.ench_power = pow;               // used for duration only?
     beem.is_explosion = true;
 
-    beem.flavour    = BEAM_POTION_MEPHITIC;
+    beem.flavour    = BEAM_MEPHITIC;
     beam_type tracer_flavour = BEAM_MMISSILE;
 
     switch (potion.sub_type)
@@ -521,7 +523,7 @@ spret_type cast_evaporate(int pow, bolt& beem, int pot_idx, bool fail)
         // fall through
     case POT_CONFUSION:
     case POT_SLOWING:
-        tracer_flavour = beem.flavour = BEAM_POTION_MEPHITIC;
+        tracer_flavour = beem.flavour = BEAM_MEPHITIC;
         break;
 
     case POT_WATER:
@@ -575,7 +577,7 @@ spret_type cast_evaporate(int pow, bolt& beem, int pot_idx, bool fail)
         switch (random2(12))
         {
         case 0:   beem.flavour = BEAM_POTION_FIRE;            break;
-        case 1:   beem.flavour = BEAM_POTION_MEPHITIC;        break;
+        case 1:   beem.flavour = BEAM_MEPHITIC;        break;
         case 2:   beem.flavour = BEAM_POTION_COLD;            break;
         case 3:   beem.flavour = BEAM_POTION_POISON;          break;
         case 4:   beem.flavour = BEAM_POTION_RANDOM;          break;

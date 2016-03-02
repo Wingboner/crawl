@@ -33,6 +33,7 @@
 #include "stuff.h"
 #include "terrain.h"
 #include "transform.h"
+#include "libutil.h"
 
 spret_type cast_cure_poison(int pow, bool fail)
 {

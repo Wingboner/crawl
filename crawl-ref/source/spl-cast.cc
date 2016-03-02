@@ -9,10 +9,11 @@
 #include <iomanip>
 
 #include "spl-cast.h"
-
+#include "spl-other.cc"
 #include "externs.h"
 #include "options.h"
-
+#include "items.h"
+#include "items.cc"
 #include "areas.h"
 #include "art-enum.h"
 #include "beam.h"
@@ -66,7 +67,9 @@
 #endif
 #include "transform.h"
 #include "view.h"
-
+#include "invent.h"
+#include "item_use.h"
+#include "spl-util.h"
 static int _spell_enhancement(unsigned int typeflags);
 
 static void _surge_power(spell_type spell)
