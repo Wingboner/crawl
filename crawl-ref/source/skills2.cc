@@ -538,7 +538,7 @@ unsigned int skill_exp_needed(int lev, skill_type sk, species_type sp)
                           15750, 17700, 19800, 22050, 24450, // 21-25
                           27000, 29750 };
 
-    ASSERT_RANGE(lev, 0, 27 + 1);
+    ASSERT_RANGE(lev, 0, MAX_SKILL_LEVEL + 1);
 
     return exp[lev] * species_apt_factor(sk, sp);
 }
@@ -591,6 +591,10 @@ float species_apt_factor(skill_type sk, species_type sp)
 
 vector<skill_type> get_crosstrain_skills(skill_type sk)
 {
+    // Gnolls do not have crosstraining.
+    if (you.mutation[MUT_DISTRIBUTED_TRAINING])
+    return {};
+
     vector<skill_type> ret;
 
     switch (sk)

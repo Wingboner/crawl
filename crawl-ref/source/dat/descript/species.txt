@@ -52,6 +52,11 @@ Gargoyle
 
 Made of living stone, Gargoyles have a preternatural affinity for the earth.
 %%%%
+Gnoll
+
+Gnolls are canine-like humanoids. They are unable to specialise in any single
+skill, but instead gradually become proficient in all skills at once.
+%%%%
 Halfling
 
 Small but hardy, Halflings excel with slings. They have an increased resistance

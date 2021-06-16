@@ -3684,7 +3684,7 @@ void god_pitch(god_type which_god)
     }
 
     // We disable all magical skills to avoid accidentally angering Trog.
-    if (you_worship(GOD_TROG))
+    if (you_worship(GOD_TROG) && !you.mutation[MUT_DISTRIBUTED_TRAINING])
     {
         for (int sk = SK_SPELLCASTING; sk <= SK_LAST_MAGIC; ++sk)
             if (you.skills[sk])
