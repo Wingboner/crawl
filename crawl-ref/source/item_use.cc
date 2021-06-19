@@ -3030,6 +3030,8 @@ void read_scroll(int slot)
         break;
 
     case SCR_AMNESIA:
+        if (you.mutation[MUT_INNATE_CASTER])
+            mpr("You feel forgetful for a moment.");
         if (!alreadyknown)
             mpr(pre_succ_msg.c_str());
         if (you.spell_no == 0)

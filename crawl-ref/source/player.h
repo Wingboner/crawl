@@ -23,12 +23,14 @@
 #endif
 
 #define POWERED_BY_DEATH_KEY "powered_by_death_strength"
+
 class targetter;
 
 int check_stealth(void);
 
 /// The standard unit of regen; one level in artifact inscriptions
 static const int REGEN_PIP = 100;
+static set<spell_type> spell_stash_permanent;
 
 typedef FixedVector<int, NUM_DURATIONS> durations_t;
 class player : public actor
@@ -100,7 +102,7 @@ public:
   burden_state_type burden_state;
   FixedVector<spell_type, MAX_KNOWN_SPELLS> spells;
   set<spell_type> old_vehumet_gifts, vehumet_gifts;
-
+  set<spell_type> spell_stash;
   uint8_t spell_no;
   game_direction_type char_direction;
   bool opened_zot;

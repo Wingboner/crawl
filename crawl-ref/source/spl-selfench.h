@@ -18,6 +18,7 @@ spret_type cast_fly(int power, bool fail = false);
 
 spret_type cast_teleport_control(int power, bool fail);
 int cast_selective_amnesia(string *pre_msg = NULL);
+int innate_spell_stash(string *pre_msg = NULL);
 spret_type cast_silence(int pow, bool fail = false);
 
 spret_type cast_infusion(int pow, bool fail = false);

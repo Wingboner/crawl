@@ -691,12 +691,6 @@ static bool _get_mem_list(spell_list &mem_spells,
             mprf(MSGCH_PROMPT, "You can't handle any books in this form.");
         return false;
     }
-    if (you.species == SP_DJINNI)
-    {
-        if (!just_check)
-            mprf(MSGCH_PROMPT, "You can't learn anything this way.");
-        return false;
-    }
 
     bool          book_errors    = false;
     unsigned int  num_on_ground  = 0;
@@ -705,38 +699,42 @@ static bool _get_mem_list(spell_list &mem_spells,
                   num_unreadable = 0;
 
     // Collect the list of all spells in all available spellbooks.
-    for (int i = 0; i < ENDOFPACK; i++)
+    if (!you.mutation[MUT_INNATE_CASTER])
     {
-        item_def& book(you.inv[i]);
-
-        if (!item_is_spellbook(book))
-            continue;
-
-        num_books++;
-        _index_book(book, book_hash, num_unreadable, book_errors);
-    }
-
-    // We also check the ground
-    vector<const item_def*> items;
-    item_list_on_square(items, you.visible_igrd(you.pos()));
-
-    for (unsigned int i = 0; i < items.size(); ++i)
-    {
-        item_def book(*items[i]);
-        if (!item_is_spellbook(book))
-            continue;
-
-        if (!item_type_known(book))
+        for (int i = 0; i < ENDOFPACK; i++)
         {
-            num_unknown++;
-            continue;
+            item_def& book(you.inv[i]);
+
+            if (!item_is_spellbook(book))
+                continue;
+
+            num_books++;
+            _index_book(book, book_hash, num_unreadable, book_errors);
         }
-
-        num_books++;
-        num_on_ground++;
-        _index_book(book, book_hash, num_unreadable, book_errors);
     }
+    // We also check the ground
+    if (!you.mutation[MUT_INNATE_CASTER])
+    {
+        vector<const item_def*> items;
+        item_list_on_square(items, you.visible_igrd(you.pos()));
 
+        for (unsigned int i = 0; i < items.size(); ++i)
+        {
+            item_def book(*items[i]);
+            if (!item_is_spellbook(book))
+                continue;
+
+            if (!item_type_known(book))
+            {
+                num_unknown++;
+                continue;
+            }
+
+            num_books++;
+            num_on_ground++;
+            _index_book(book, book_hash, num_unreadable, book_errors);
+        }
+    }
     // Handle Vehumet gifts
     set<spell_type>::iterator gift_iterator = you.vehumet_gifts.begin();
     if (gift_iterator != you.vehumet_gifts.end())
@@ -745,7 +743,15 @@ static bool _get_mem_list(spell_list &mem_spells,
         while (gift_iterator != you.vehumet_gifts.end())
             book_hash[*gift_iterator++] = NUM_BOOKS;
     }
-
+    
+    // Handle spell stash
+    set<spell_type>::iterator stash_iterator = you.spell_stash.begin();
+    if (stash_iterator != you.spell_stash.end())
+    {
+        num_books++;
+        while (stash_iterator != you.spell_stash.end())
+            book_hash[*stash_iterator++] = NUM_BOOKS;
+    }
     if (book_errors)
         more();
 
@@ -1205,7 +1211,7 @@ static bool _learn_spell_checks(spell_type specspell)
         return false;
     }
 
-    if (player_spell_levels() < spell_levels_required(specspell))
+    if (player_spell_levels() < spell_levels_required(specspell) && !you.mutation[MUT_INNATE_CASTER])
     {
         mpr("You can't memorise that many levels of magic yet!");
         return false;

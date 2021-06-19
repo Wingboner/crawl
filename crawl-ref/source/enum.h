@@ -67,6 +67,8 @@ enum ability_type
     ABIL_STOP_FLYING,
     // Mummies
     ABIL_MUMMY_RESTORATION,
+    // Djinn
+    ABIL_INNATE_SPELL_STASH,
     // Vampires
     ABIL_TRAN_BAT,
     ABIL_BOTTLE_BLOOD,

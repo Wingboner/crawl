@@ -114,7 +114,6 @@ static int _scale_piety_cost(ability_type abil, int original_cost);
 static string _zd_mons_description_for_ability(const ability_def &abil);
 static monster_type _monster_for_ability(const ability_def& abil);
 static bool _jump_player(int jump_range);
-
 /**
  * This all needs to be split into data/util/show files
  * and the struct mechanism here needs to be rewritten (again)
@@ -240,9 +239,12 @@ static const ability_def Ability_List[] =
       0, 0, 0, 0, 0, ABFLAG_NONE},
     { ABIL_MUMMY_RESTORATION, "Self-Restoration",
       1, 0, 0, 0, 0, ABFLAG_PERMANENT_MP},
+    { ABIL_INNATE_SPELL_STASH, "Stash a Spell", 0, 0, 0, 0, 0, ABFLAG_NONE},
 
     { ABIL_DIG, "Dig", 0, 0, 0, 0, 0, ABFLAG_INSTANT},
     { ABIL_SHAFT_SELF, "Shaft Self", 0, 0, 250, 0, 0, ABFLAG_DELAY},
+
+
 
     // EVOKE abilities use Evocations and come from items.
     // Teleportation and Blink can also come from mutations
@@ -916,6 +918,7 @@ talent get_talent(ability_type ability, bool check_confused)
     // begin spell abilities
     case ABIL_DELAYED_FIREBALL:
     case ABIL_MUMMY_RESTORATION:
+    case ABIL_INNATE_SPELL_STASH:
     case ABIL_STOP_SINGING:
         failure = 0;
         break;
@@ -1530,6 +1533,11 @@ static bool _check_ability_possible(const ability_def& abil,
         }
         return true;
 
+//    case ABIL_INNATE_SPELL_STASH:
+//        if (innate_spell_stash() <= 0)
+//            return false;
+//        break;
+
     case ABIL_LUGONU_ABYSS_EXIT:
         if (!player_in_branch(BRANCH_ABYSS))
         {
@@ -1719,6 +1727,7 @@ bool activate_talent(const talent& tal)
         case ABIL_DELAYED_FIREBALL:
         case ABIL_STOP_SINGING:
         case ABIL_MUMMY_RESTORATION:
+        case ABIL_INNATE_SPELL_STASH:
         case ABIL_TRAN_BAT:
         case ABIL_BOTTLE_BLOOD:
         case ABIL_ASHENZARI_END_TRANSFER:
@@ -2326,6 +2335,10 @@ static bool _do_ability(const ability_def& abil)
         you.time_taken = div_rand_round(you.time_taken * 3, 2);
         untransform();
         break;
+    case ABIL_INNATE_SPELL_STASH:
+        innate_spell_stash();
+        break;
+
 
     // INVOCATIONS:
     case ABIL_ZIN_RECITE:
@@ -2621,7 +2634,7 @@ static bool _do_ability(const ability_def& abil)
         if (cast_selective_amnesia() <= 0)
             return false;
         break;
-
+        
     case ABIL_ELYVILON_LIFESAVING:
         if (you.duration[DUR_LIFESAVING])
             mpr("You renew your call for help.");
@@ -3303,9 +3316,13 @@ vector<talent> your_talents(bool check_confused, bool include_unusable)
     if (you.species == SP_MUMMY && you.experience_level >= 13)
         _add_talent(talents, ABIL_MUMMY_RESTORATION, check_confused);
 
+    if (you.mutation[MUT_INNATE_CASTER] && you.experience_level >= 4)
+        _add_talent(talents, ABIL_INNATE_SPELL_STASH, check_confused);
     if (you.species == SP_DEEP_DWARF)
+    {
+        _add_talent(talents, ABIL_INNATE_SPELL_STASH, check_confused);
         _add_talent(talents, ABIL_RECHARGING, check_confused);
-
+    }
     if (you.species == SP_FORMICID)
     {
         _add_talent(talents, ABIL_DIG, check_confused);

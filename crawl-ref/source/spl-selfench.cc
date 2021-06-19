@@ -17,6 +17,7 @@
 #include "message.h"
 #include "misc.h"
 #include "options.h"
+#include "player.h"
 #include "religion.h"
 #include "spl-cast.h"
 #include "spl-transloc.h"
@@ -317,6 +318,68 @@ int cast_selective_amnesia(string *pre_msg)
 
     del_spell_from_memory_by_slot(slot);
 
+    return 1;
+}
+
+int innate_spell_stash(string *pre_msg)
+{
+    if (you.spell_no == 0)
+    {
+        canned_msg(MSG_NO_SPELLS);
+        return 0;
+    }
+
+    int keyin = 0;
+    spell_type spell;
+    int slot;
+
+    // Pick a spell to forget.
+    mprf(MSGCH_PROMPT, "Stash which spell ([?*] list [ESC] exit)? ");
+    keyin = list_spells(false, false, false, "Stash which spell?");
+    redraw_screen();
+
+    while (true)
+    {
+        if (key_is_escape(keyin))
+        {
+            canned_msg(MSG_OK);
+            return -1;
+        }
+
+        if (keyin == '?' || keyin == '*')
+        {
+            keyin = list_spells(false, false, false, "Stash which spell?");
+            redraw_screen();
+        }
+
+        if (!isaalpha(keyin))
+        {
+            mesclr();
+            mprf(MSGCH_PROMPT, "Stash which spell ([?*] list [ESC] exit)? ");
+            keyin = get_ch();
+            continue;
+        }
+
+        spell = get_spell_by_letter(keyin);
+        slot = get_spell_slot_by_letter(keyin);
+
+        if (spell == SPELL_NO_SPELL)
+        {
+            mpr("You don't know that spell.");
+            mprf(MSGCH_PROMPT, "Stash which spell ([?*] list [ESC] exit)? ");
+            keyin = get_ch();
+        }
+        else
+            break;
+    }
+
+    if (pre_msg)
+        mpr(pre_msg->c_str());
+
+    you.spell_stash.insert(spell);
+    del_spell_from_memory_by_slot(slot);
+
+    mprf("You add the spell %s to your stash.", spell_title(spell));
     return 1;
 }
 
